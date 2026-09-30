@@ -1,0 +1,19 @@
+{
+  "nombre": "Combi Cubana · 2 cadenas + 2 pulseras",
+  "precio": 44990,
+  "foto": "/img/productos/combi-cubana-1.jpg",
+  "fotos": [
+    "/img/productos/combi-cubana-2.jpg"
+  ],
+  "descripcion": "Eslabón tipo cubano. Combínalas entre sí o úsalas por separado: el look completo en un solo pedido.",
+  "variante": "",
+  "variantes": [],
+  "incluye": [
+    "2 cadenas cubanas",
+    "2 pulseras cubanas"
+  ],
+  "etiqueta": "Combo",
+  "orden": 40,
+  "agotado": false,
+  "visible": true
+}

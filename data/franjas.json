@@ -1,0 +1,24 @@
+{
+  "franja1": {
+    "frases": [
+      "Plata nacional ley 925",
+      "Envíos a todo Chile",
+      "Por mayor y al detalle",
+      "Diseños exclusivos",
+      "Atención por DM y WhatsApp",
+      "Stock limitado"
+    ],
+    "velocidad": "normal"
+  },
+  "franja2": {
+    "mostrar": true,
+    "frases": [
+      "Joyas que brillan como tú",
+      "Calidad que se ve",
+      "Confianza que se siente",
+      "Lotes a elección",
+      "Se van rápido"
+    ],
+    "velocidad": "lenta"
+  }
+}

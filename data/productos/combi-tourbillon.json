@@ -1,0 +1,19 @@
+{
+  "nombre": "Combi Tourbillon · 2 cadenas + 2 pulseras",
+  "precio": 24990,
+  "foto": "/img/productos/combi-tourbillon-1.jpg",
+  "fotos": [
+    "/img/productos/combi-tourbillon-2.jpg"
+  ],
+  "descripcion": "Cuatro piezas Tourbillon a precio de promo. Esta promo está buena.",
+  "variante": "",
+  "variantes": [],
+  "incluye": [
+    "2 cadenas Tourbillon",
+    "2 pulseras Tourbillon"
+  ],
+  "etiqueta": "Promo",
+  "orden": 60,
+  "agotado": false,
+  "visible": true
+}

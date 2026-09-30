@@ -1,0 +1,10 @@
+{
+  "nombre": "Cadenas",
+  "productos": [
+    "cadena-tourbillon",
+    "cadena-torzal-oro-14k",
+    "cadena-tennis-cuadrada"
+  ],
+  "orden": 10,
+  "visible": true
+}

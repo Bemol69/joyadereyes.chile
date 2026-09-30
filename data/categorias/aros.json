@@ -1,0 +1,10 @@
+{
+  "nombre": "Aros",
+  "productos": [
+    "lote-aros-halo-circon",
+    "aros-trebol",
+    "aros-princesa-5-pares"
+  ],
+  "orden": 30,
+  "visible": true
+}

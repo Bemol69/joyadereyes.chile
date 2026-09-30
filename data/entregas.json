@@ -1,0 +1,40 @@
+{
+  "entregas": [
+    {
+      "archivo": "/img/entregas/envio-concepcion.jpg",
+      "titulo": "Envío a Concepción",
+      "texto": "Despachado por Starken",
+      "descripcion": "Comprobante de envío Starken de un pedido a Concepción"
+    },
+    {
+      "archivo": "/img/entregas/entrega-los-andes.jpg",
+      "titulo": "Entrega en Los Andes",
+      "texto": "En mano, en el punto acordado",
+      "descripcion": "Entrega presencial de aros en bolsita en Los Andes"
+    },
+    {
+      "archivo": "/img/entregas/full-combi.jpg",
+      "titulo": "Full combi se llevó",
+      "texto": "Bolsitas selladas",
+      "descripcion": "Combi de cadenas y pulseras en bolsitas holográficas"
+    },
+    {
+      "archivo": "/img/entregas/cadena-y-pulsera.jpg",
+      "titulo": "Cadena y pulsera",
+      "texto": "Gracias por la confianza",
+      "descripcion": "Clienta usando cadena y pulsera de plata"
+    },
+    {
+      "archivo": "/img/entregas/pieza-vendida.jpg",
+      "titulo": "Otra pieza vendida",
+      "texto": "Diseño exclusivo",
+      "descripcion": "Pulsera de circones en la mano antes de la entrega"
+    },
+    {
+      "archivo": "/img/entregas/argollas-vendidas.jpg",
+      "titulo": "Vendido",
+      "texto": "Argollas de plata 925",
+      "descripcion": "Argollas de plata sobre su estuche"
+    }
+  ]
+}

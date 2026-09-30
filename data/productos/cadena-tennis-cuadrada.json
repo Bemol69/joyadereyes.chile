@@ -1,0 +1,21 @@
+{
+  "nombre": "Cadena Tennis · Eslabón Cuadrado",
+  "precio": 24990,
+  "foto": "/img/productos/cadena-tennis-cuadrada-1.jpg",
+  "fotos": [
+    "/img/productos/cadena-tennis-cuadrada-2.jpg"
+  ],
+  "descripcion": "Estilo tennis con eslabones cuadrados de corte diamante: brillo parejo en toda la cadena.",
+  "variante": "Largo",
+  "variantes": [
+    "45 cm",
+    "50 cm",
+    "55 cm",
+    "60 cm"
+  ],
+  "incluye": [],
+  "etiqueta": "",
+  "orden": 100,
+  "agotado": false,
+  "visible": true
+}

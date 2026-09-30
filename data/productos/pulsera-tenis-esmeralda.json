@@ -1,0 +1,16 @@
+{
+  "nombre": "Pulsera Tenis Esmeralda",
+  "precio": 19000,
+  "foto": "/img/productos/pulsera-tenis-esmeralda-1.jpg",
+  "fotos": [
+    "/img/productos/pulsera-tenis-esmeralda-2.jpg"
+  ],
+  "descripcion": "Circones verde esmeralda con halo de brillo, uno tras otro. El regalo perfecto para esa persona especial 🍀",
+  "variante": "",
+  "variantes": [],
+  "incluye": [],
+  "etiqueta": "Recién llegada",
+  "orden": 10,
+  "agotado": false,
+  "visible": true
+}

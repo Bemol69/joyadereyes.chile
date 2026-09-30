@@ -1,0 +1,21 @@
+{
+  "nombre": "Cadena Tourbillon · Plata 925",
+  "precio": 19000,
+  "foto": "/img/productos/cadena-tourbillon-1.jpg",
+  "fotos": [
+    "/img/productos/cadena-tourbillon-2.jpg"
+  ],
+  "descripcion": "El torzal que más brilla. Llamativa y versátil: úsala sola o combínala con tus otras piezas.",
+  "variante": "Largo",
+  "variantes": [
+    "45 cm",
+    "50 cm",
+    "55 cm",
+    "60 cm"
+  ],
+  "incluye": [],
+  "etiqueta": "Más pedida",
+  "orden": 20,
+  "agotado": false,
+  "visible": true
+}

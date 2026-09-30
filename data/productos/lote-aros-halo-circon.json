@@ -1,0 +1,18 @@
+{
+  "nombre": "Lote Aros Halo · Plata y Circón",
+  "precio": 19990,
+  "foto": "/img/productos/lote-aros-halo-circon-1.jpg",
+  "fotos": [
+    "/img/productos/lote-aros-halo-circon-2.jpg"
+  ],
+  "descripcion": "5 pares de aros cuadrados con halo de circones. Para ti, para regalar o para revender.",
+  "variante": "",
+  "variantes": [],
+  "incluye": [
+    "5 pares de aros"
+  ],
+  "etiqueta": "Lote 5 pares",
+  "orden": 30,
+  "agotado": false,
+  "visible": true
+}

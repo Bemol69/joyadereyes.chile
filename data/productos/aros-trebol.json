@@ -1,0 +1,19 @@
+{
+  "nombre": "Aros Trébol · Plata 925",
+  "precio": 5000,
+  "foto": "/img/productos/aros-trebol-1.jpg",
+  "fotos": [
+    "/img/productos/aros-trebol-2.jpg"
+  ],
+  "descripcion": "Trébol facetado colgando de un punto de luz. Al detalle, elige tu color.",
+  "variante": "Color",
+  "variantes": [
+    "Negro",
+    "Celeste"
+  ],
+  "incluye": [],
+  "etiqueta": "",
+  "orden": 70,
+  "agotado": false,
+  "visible": true
+}

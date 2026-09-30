@@ -1,0 +1,563 @@
+# Configuración del panel /admin (Sveltia CMS)
+# Cada cambio que se guarda aquí crea un commit en GitHub.
+# Vercel arma la web (scripts/build.mjs) y la publica en ~30 segundos.
+
+backend:
+  name: github
+  repo: %%GITHUB_REPO%%
+  branch: main
+  commit_messages:
+    create: "Catálogo: crea {{collection}} «{{slug}}»"
+    update: "Catálogo: actualiza {{collection}} «{{slug}}»"
+    delete: "Catálogo: elimina {{collection}} «{{slug}}»"
+    uploadMedia: "Catálogo: sube foto {{path}}"
+    deleteMedia: "Catálogo: elimina foto {{path}}"
+
+site_url: %%SITE_URL%%
+display_url: %%SITE_URL%%
+logo_url: ../img/logo.jpg
+
+media_folder: img/productos
+public_folder: /img/productos
+
+# Nombres de archivo sin tildes ni ñ (ej: "Bape Sta · Shark" -> bape-sta-shark.json)
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+# Las fotos del celular se achican y convierten a WebP al subirlas, para que la web cargue rápido
+media_libraries:
+  default:
+    config:
+      transformations:
+        raster_image:
+          format: webp
+          quality: 85
+          width: 1200
+          height: 1200
+
+collections:
+  # ---------- CATEGORÍAS (filtros del catálogo) ----------
+  - name: categorias
+    label: Categorías
+    label_singular: categoría
+    description: "Los filtros de la vitrina (Cadenas, Pulseras, Aros, Combis…). Abre uno para elegir qué piezas aparecen en él."
+    icon: filter_list
+    folder: data/categorias
+    format: json
+    create: true
+    delete: true
+    identifier_field: nombre
+    slug: "{{nombre}}"
+    summary: "{{nombre}}"
+    sortable_fields:
+      fields: [orden, nombre]
+      default:
+        field: orden
+        direction: ascending
+    fields:
+      - name: nombre
+        label: Nombre del filtro
+        widget: string
+        hint: "Así aparece en la web. Ej: Cadenas"
+
+      - name: productos
+        label: Productos en este filtro
+        widget: relation
+        collection: productos
+        value_field: "{{slug}}"
+        search_fields: [nombre]
+        display_fields: ["{{nombre}} · ${{precio}}"]
+        multiple: true
+        required: false
+        hint: "Busca y marca los productos. Un mismo producto puede estar en varios filtros. Para moverlo, quítalo de aquí y agrégalo en el otro."
+
+      - name: orden
+        label: Posición
+        widget: number
+        value_type: int
+        default: 100
+        hint: "Los números más bajos aparecen primero en la barra de filtros."
+
+      - name: visible
+        label: Mostrar en la web
+        widget: boolean
+        default: true
+        hint: "Desactívalo para esconder el filtro sin borrarlo (ej: sin stock por un tiempo)."
+
+  # ---------- PRODUCTOS ----------
+  - name: productos
+    label: Productos
+    label_singular: producto
+    description: "Todos los productos. Para que un producto aparezca en un filtro, agrégalo desde Categorías."
+    icon: storefront
+    folder: data/productos
+    format: json
+    create: true
+    delete: true
+    identifier_field: nombre
+    slug: "{{nombre}}"
+    summary: "{{nombre}} · ${{precio}}"
+    thumbnail: foto
+    sortable_fields:
+      fields: [orden, nombre, precio]
+      default:
+        field: orden
+        direction: ascending
+    fields:
+      - name: nombre
+        label: Nombre del producto
+        widget: string
+
+      - name: precio
+        label: Precio
+        widget: number
+        value_type: int
+        min: 0
+        hint: "Solo números, sin puntos ni signo $. Ej: 19000. Si lo dejas en 0 aparece «Consultar»."
+
+      - name: foto
+        label: Foto principal
+        widget: image
+        hint: "La que se ve en la vitrina. Ideal vertical, con la joya al centro (sobre el guante o el busto negro se ve increíble)."
+
+      - name: fotos
+        label: Más fotos
+        label_singular: foto
+        widget: list
+        required: false
+        field:
+          name: foto
+          label: Foto
+          widget: image
+        hint: "Opcional. Otro ángulo, puesta, en la mano… La primera aparece al pasar el mouse sobre la pieza."
+
+      - name: descripcion
+        label: Descripción
+        widget: text
+        required: false
+        hint: "Opcional. Una o dos frases sobre la pieza (material, grosor, para quién). Los largos o colores NO van aquí: van en el campo de abajo."
+
+      - name: variante
+        label: Tipo de opción
+        widget: select
+        required: false
+        options: [Largo, Color, Talla, Talla de anillo, Medida, Modelo]
+        default: Largo
+        hint: "Qué elige el cliente antes de agregar a la bolsa. Ej: Largo para cadenas y pulseras, Color para aros, Talla de anillo para anillos."
+
+      - name: variantes
+        label: Opciones disponibles
+        label_singular: opción
+        widget: list
+        required: false
+        field:
+          name: opcion
+          label: Opción
+          widget: string
+        hint: "Una opción por línea (botón «Agregar opción»). Ej: 45 cm, 50 cm, 60 cm · Negro, Celeste · 18, 20, 22. Déjalo vacío si la pieza no tiene opciones (combis, lotes). Cuando se agote una opción, bórrala de aquí."
+
+      - name: incluye
+        label: Qué incluye
+        label_singular: ítem
+        widget: list
+        required: false
+        field:
+          name: item
+          label: Ítem
+          widget: string
+        hint: "Un ítem por línea. Ej: 2 cadenas cubanas, 2 pulseras, Bolsita sellada."
+
+      - name: etiqueta
+        label: Etiqueta
+        widget: string
+        required: false
+        hint: "Opcional. Aparece sobre la foto. Ej: Recién llegada, Más pedida, Última unidad."
+
+      - name: orden
+        label: Posición
+        widget: number
+        value_type: int
+        default: 1000
+        hint: "Los números más bajos aparecen primero en el catálogo."
+
+      - name: agotado
+        label: Agotado
+        widget: boolean
+        default: false
+        hint: "Si está activado, se muestra «Consultar stock» en vez de «Agregar»."
+
+      - name: visible
+        label: Mostrar en la web
+        widget: boolean
+        default: true
+        hint: "Desactívalo para ocultar el producto sin borrarlo."
+
+  # ---------- CÓDIGOS DE DESCUENTO ----------
+  - name: cupones
+    label: Códigos de descuento
+    label_singular: código de descuento
+    description: "Códigos que tus clientes escriben en la bolsa. La web les dice si es válido y el descuento llega calculado en el mensaje de WhatsApp. Para un código de regalo de un solo uso, apágalo (o bórralo) cuando cierres la venta."
+    icon: sell
+    folder: data/cupones
+    format: json
+    create: true
+    delete: true
+    identifier_field: titulo
+    slug: "{{titulo}}"
+    summary: "{{codigo}} · {{titulo}} · {{activo}}"
+    sortable_fields:
+      fields: [titulo, codigo, vence]
+    fields:
+      - name: titulo
+        label: Título
+        widget: string
+        hint: "Para que tú lo reconozcas y el cliente lo vea al aplicarlo. Ej: Bienvenida 10%, Regalo Camila."
+
+      - name: codigo
+        label: Código
+        widget: string
+        pattern: ['^[A-Za-z0-9-]{3,20}$', "Entre 3 y 20 letras, números o guiones, sin espacios ni tildes. Ej: REYES10"]
+        hint: "Lo que el cliente escribe. Da lo mismo si lo escribe con mayúsculas o minúsculas. Ideas: REYES10, COMBI5, REGALO-CAMI, JR-7K2Q (para regalos, algo difícil de adivinar)."
+
+      - name: tipo
+        label: Tipo de descuento
+        widget: select
+        options:
+          - { label: "Porcentaje (%)", value: porcentaje }
+          - { label: "Monto fijo en pesos ($)", value: monto }
+        default: porcentaje
+
+      - name: valor
+        label: Descuento
+        widget: number
+        value_type: int
+        min: 1
+        hint: "Solo el número. Si es porcentaje: 10 = 10% de descuento. Si es monto fijo: 5000 = $5.000 menos en el pedido."
+
+      - name: categorias
+        label: Aplica a estas categorías
+        widget: relation
+        collection: categorias
+        value_field: "{{slug}}"
+        search_fields: [nombre]
+        display_fields: [nombre]
+        multiple: true
+        required: false
+        hint: "Opcional. Ej: solo «Combis». Si dejas vacías las categorías Y los productos, el código sirve para toda la tienda."
+
+      - name: productos
+        label: Aplica a estos productos
+        widget: relation
+        collection: productos
+        value_field: "{{slug}}"
+        search_fields: [nombre]
+        display_fields: ["{{nombre}} · ${{precio}}"]
+        multiple: true
+        required: false
+        hint: "Opcional. Se suma a las categorías de arriba."
+
+      - name: minimo
+        label: Compra mínima
+        widget: number
+        value_type: int
+        min: 0
+        required: false
+        hint: "Opcional. Monto mínimo (en piezas donde aplica el código) para que funcione. Ej: 20000. Vacío = sin mínimo."
+
+      - name: vence
+        label: Válido hasta
+        widget: datetime
+        format: "YYYY-MM-DD"
+        time_format: false
+        required: false
+        hint: "Opcional. El código deja de funcionar al terminar ese día. Vacío = sin fecha de término."
+
+      - name: activo
+        label: Activo
+        widget: boolean
+        default: true
+        hint: "Apágalo cuando ya se usó (códigos de regalo) o para pausar una promo sin borrarla."
+
+  # ---------- AJUSTES (datos de contacto y portada, editables por el cliente) ----------
+  - name: ajustes
+    label: Ajustes de la tienda
+    icon: settings
+    files:
+      - name: ajustes
+        label: Contacto, horario y portada
+        file: data/ajustes.json
+        format: json
+        fields:
+          - name: whatsapp
+            label: WhatsApp para pedidos
+            widget: string
+            pattern: ['^\+?[0-9 ]{10,17}$', "Formato internacional, ej: 56912345678"]
+            hint: "Con código de país y sin +. Ej: 56912345678"
+          - { name: instagram, label: Usuario de Instagram, widget: string, required: false, hint: "Sin @. Déjalo vacío para ocultarlo." }
+          - { name: seguidores, label: Seguidores en Instagram, widget: string, required: false, pattern: ['^[0-9.]*
+          - { name: tiktok, label: Usuario de TikTok, widget: string, required: false, hint: "Sin @. Déjalo vacío para ocultarlo." }
+          - { name: email, label: Correo, widget: string, required: false }
+          - { name: direccion, label: Dirección, widget: string, required: false, hint: "Calle y número (sin la ciudad)." }
+          - { name: ciudad, label: Ciudad, widget: string }
+          - { name: region, label: Región, widget: string, required: false }
+          - { name: envios, label: Cobertura de envíos, widget: string, required: false, hint: "Ej: Envíos a todo Chile" }
+          - name: empresas_envio
+            label: Empresas de envío
+            widget: select
+            multiple: true
+            options: [Starken, Chilexpress, Blue Express]
+            default: [Starken, Chilexpress, Blue Express]
+            hint: "Las que el cliente puede elegir al pedir un envío a otra ciudad."
+          - name: zonas_entrega
+            label: Zonas de entrega en mano
+            label_singular: zona
+            widget: list
+            required: false
+            field: { name: zona, label: Zona, widget: string }
+            hint: "Ciudades o comunas donde entregas en persona. Cada una aparece como opción al pedir. Ej: Los Andes, San Felipe."
+          - { name: horario_dias, label: Días de atención, widget: string, default: "Lunes a domingo", required: false }
+          - { name: hora_abre, label: Hora de apertura, widget: string, required: false, hint: "Opcional. Vacío = no se muestra horario.", pattern: ['^\d{2}:\d{2}$', "Formato HH:MM, ej 09:00"] }
+          - { name: hora_cierra, label: Hora de cierre, widget: string, required: false, pattern: ['^\d{2}:\d{2}$', "Formato HH:MM, ej 20:00"] }
+          - { name: hero_titulo, label: Título de la portada, widget: string, hint: "Corto y con fuerza. Ej: Plata que se ve" }
+          - { name: hero_destacado, label: Parte destacada del título, widget: string, required: false, hint: "Aparece en cursiva y cromado bajo el título. Ej: de lejos" }
+          - { name: hero_bajada, label: Texto bajo el título, widget: text }
+
+  # ---------- FLYER Y ENTREGAS (portada, editables por el cliente) ----------
+  - name: inicio
+    label: Flyer, franjas y entregas
+    description: "El flyer de la promo, las 2 franjas de texto en movimiento y las fotos o videos de «Se fueron»."
+    icon: campaign
+    files:
+      - name: flyer
+        label: Flyer de ofertas
+        file: data/flyer.json
+        format: json
+        fields:
+          - name: mostrar
+            label: Mostrar flyer en la web
+            widget: boolean
+            default: true
+            hint: "Apágalo cuando no haya oferta vigente. Se ocultan la sección y la ventana emergente."
+          - name: popup
+            label: Mostrar también como ventana emergente
+            widget: boolean
+            default: true
+            hint: "Aparece una vez por visita al entrar a la página."
+          - name: imagen
+            label: Imagen del flyer
+            widget: image
+            media_folder: /img/flyer
+            public_folder: /img/flyer
+            hint: "Solo hay un flyer a la vez: para cambiarlo, sube la nueva imagen aquí y reemplaza la anterior. Ideal vertical 1080×1350 (formato post de Instagram)."
+          - name: titulo
+            label: Título de la sección
+            widget: string
+            default: "Promo de la semana"
+            hint: "Aparece junto al flyer. Ej: 5 pares por $16.000, Cyber JR."
+          - name: descripcion
+            label: Texto de la oferta
+            widget: text
+            hint: "Resume lo que dice el flyer (aparece junto a la imagen y ayuda a Google y a personas con lector de pantalla)."
+          - name: mensaje_whatsapp
+            label: Mensaje de WhatsApp
+            widget: string
+            hint: "Lo que se escribe solo cuando tocan «Quiero esta oferta»."
+
+      - name: franjas
+        label: Franjas de texto
+        file: data/franjas.json
+        format: json
+        fields:
+          - name: franja1
+            label: "Franja 1 (delgada, bajo la portada)"
+            widget: object
+            fields:
+              - name: frases
+                label: Frases
+                label_singular: frase
+                widget: list
+                min: 1
+                field: { name: frase, label: Frase, widget: string }
+                hint: "Una frase corta por línea (2 a 5 palabras). Ej: Plata nacional ley 925, Envíos a todo Chile."
+              - name: velocidad
+                label: Velocidad
+                widget: select
+                options: [{ label: Lenta, value: lenta }, { label: Normal, value: normal }, { label: Rápida, value: rapida }]
+                default: normal
+          - name: franja2
+            label: "Franja 2 (grande, de ofertas)"
+            widget: object
+            fields:
+              - name: mostrar
+                label: Mostrar en la web
+                widget: boolean
+                default: true
+              - name: frases
+                label: Frases
+                label_singular: frase
+                widget: list
+                min: 1
+                field: { name: frase, label: Frase, widget: string }
+                hint: "Frases cortas y con fuerza. Ej: Joyas que brillan como tú, Calidad que se ve."
+              - name: velocidad
+                label: Velocidad
+                widget: select
+                options: [{ label: Lenta, value: lenta }, { label: Normal, value: normal }, { label: Rápida, value: rapida }]
+                default: normal
+
+      - name: entregas
+        label: Se fueron (3 a 6 fotos o videos)
+        file: data/entregas.json
+        format: json
+        fields:
+          - name: entregas
+            label: Entregas
+            label_singular: entrega
+            widget: list
+            min: 3
+            max: 6
+            hint: "Entre 3 y 6: entregas, envíos o clientes luciendo sus joyas. Puedes arrastrarlas para cambiar el orden. Ojo: no subas comprobantes con datos de tus clientes."
+            summary: "{{titulo}}"
+            fields:
+              - name: archivo
+                label: Foto o video
+                widget: file
+                accept: "image/*,video/mp4,video/webm"
+                media_folder: /img/entregas
+                public_folder: /img/entregas
+                hint: "Foto (JPG/PNG) o video MP4 vertical, idealmente de menos de 15 segundos y 20 MB. Los videos se reproducen solos, sin sonido y en loop."
+              - { name: titulo, label: Título, widget: string, hint: "Ej: Envío a Concepción" }
+              - { name: texto, label: Bajada, widget: string, required: false, hint: "Ej: Despachado por Starken" }
+              - { name: descripcion, label: Descripción de la imagen, widget: string, required: false, hint: "Qué se ve en la foto o video (para Google y lectores de pantalla)." }
+, "Solo el número, ej: 389 o 1.250"], hint: "Aparece en la portada. Actualízalo cuando quieras. Vacío = no se muestra." }
+          - { name: tiktok, label: Usuario de TikTok, widget: string, required: false, hint: "Sin @. Déjalo vacío para ocultarlo." }
+          - { name: email, label: Correo, widget: string, required: false }
+          - { name: direccion, label: Dirección, widget: string, required: false, hint: "Calle y número (sin la ciudad)." }
+          - { name: ciudad, label: Ciudad, widget: string }
+          - { name: region, label: Región, widget: string, required: false }
+          - { name: envios, label: Cobertura de envíos, widget: string, required: false, hint: "Ej: Envíos a todo Chile" }
+          - name: empresas_envio
+            label: Empresas de envío
+            widget: select
+            multiple: true
+            options: [Starken, Chilexpress, Blue Express]
+            default: [Starken, Chilexpress, Blue Express]
+            hint: "Las que el cliente puede elegir al pedir un envío a otra ciudad."
+          - { name: horario_dias, label: Días de atención, widget: string, default: "Lunes a domingo" }
+          - { name: hora_abre, label: Hora de apertura, widget: string, pattern: ['^\d{2}:\d{2}$', "Formato HH:MM, ej 09:00"] }
+          - { name: hora_cierra, label: Hora de cierre, widget: string, pattern: ['^\d{2}:\d{2}$', "Formato HH:MM, ej 20:00"] }
+          - { name: hero_titulo, label: Título de la portada, widget: string }
+          - { name: hero_destacado, label: Parte destacada del título, widget: string, required: false, hint: "Aparece en cursiva y color al final del título." }
+          - { name: hero_bajada, label: Texto bajo el título, widget: text }
+
+  # ---------- FLYER Y ENTREGAS (portada, editables por el cliente) ----------
+  - name: inicio
+    label: Flyer, franjas y entregas
+    description: "El flyer de ofertas, las 2 franjas de texto en movimiento y las 3 fotos o videos de «Entregas reales»."
+    icon: campaign
+    files:
+      - name: flyer
+        label: Flyer de ofertas
+        file: data/flyer.json
+        format: json
+        fields:
+          - name: mostrar
+            label: Mostrar flyer en la web
+            widget: boolean
+            default: true
+            hint: "Apágalo cuando no haya oferta vigente. Se ocultan la sección y la ventana emergente."
+          - name: popup
+            label: Mostrar también como ventana emergente
+            widget: boolean
+            default: true
+            hint: "Aparece una vez por visita al entrar a la página."
+          - name: imagen
+            label: Imagen del flyer
+            widget: image
+            media_folder: /img/flyer
+            public_folder: /img/flyer
+            hint: "Solo hay un flyer a la vez: para cambiarlo, sube la nueva imagen aquí y reemplaza la anterior. Ideal vertical 1080×1350 (formato post de Instagram)."
+          - name: titulo
+            label: Título de la sección
+            widget: string
+            default: "Ofertas de verano"
+            hint: "Aparece junto al flyer. Ej: Ofertas de verano, Black Friday."
+          - name: descripcion
+            label: Texto de la oferta
+            widget: text
+            hint: "Resume lo que dice el flyer (aparece junto a la imagen y ayuda a Google y a personas con lector de pantalla)."
+          - name: mensaje_whatsapp
+            label: Mensaje de WhatsApp
+            widget: string
+            hint: "Lo que se escribe solo cuando tocan «Quiero esta oferta»."
+
+      - name: franjas
+        label: Franjas de texto
+        file: data/franjas.json
+        format: json
+        fields:
+          - name: franja1
+            label: "Franja 1 (delgada, bajo la portada)"
+            widget: object
+            fields:
+              - name: frases
+                label: Frases
+                label_singular: frase
+                widget: list
+                min: 1
+                field: { name: frase, label: Frase, widget: string }
+                hint: "Una frase corta por línea (2 a 5 palabras). Ej: Paga al recibir, Envíos a todo Chile."
+              - name: velocidad
+                label: Velocidad
+                widget: select
+                options: [{ label: Lenta, value: lenta }, { label: Normal, value: normal }, { label: Rápida, value: rapida }]
+                default: normal
+          - name: franja2
+            label: "Franja 2 (grande, de ofertas)"
+            widget: object
+            fields:
+              - name: mostrar
+                label: Mostrar en la web
+                widget: boolean
+                default: true
+              - name: frases
+                label: Frases
+                label_singular: frase
+                widget: list
+                min: 1
+                field: { name: frase, label: Frase, widget: string }
+                hint: "Frases de oferta, cortas y con fuerza. Ej: Siempre con descuentos, Precios nunca antes vistos, 2x1 en poleras."
+              - name: velocidad
+                label: Velocidad
+                widget: select
+                options: [{ label: Lenta, value: lenta }, { label: Normal, value: normal }, { label: Rápida, value: rapida }]
+                default: normal
+
+      - name: entregas
+        label: Entregas reales (3 fotos o videos)
+        file: data/entregas.json
+        format: json
+        fields:
+          - name: entregas
+            label: Entregas
+            label_singular: entrega
+            widget: list
+            min: 3
+            max: 3
+            allow_add: false
+            allow_remove: false
+            hint: "Siempre son 3. Para cambiar una, reemplaza su foto o video. Puedes arrastrarlas para cambiar el orden."
+            summary: "{{titulo}}"
+            fields:
+              - name: archivo
+                label: Foto o video
+                widget: file
+                accept: "image/*,video/mp4,video/webm"
+                media_folder: /img/entregas
+                public_folder: /img/entregas
+                hint: "Foto (JPG/PNG) o video MP4 vertical, idealmente de menos de 15 segundos y 20 MB. Los videos se reproducen solos, sin sonido y en loop."
+              - { name: titulo, label: Título, widget: string, hint: "Ej: Entrega presencial" }
+              - { name: texto, label: Bajada, widget: string, required: false, hint: "Ej: Despachado por Starken" }
+              - { name: descripcion, label: Descripción de la imagen, widget: string, required: false, hint: "Qué se ve en la foto o video (para Google y lectores de pantalla)." }

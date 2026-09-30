@@ -1,0 +1,18 @@
+{
+  "nombre": "Aros Princesa · 5 pares",
+  "precio": 16000,
+  "foto": "/img/productos/aros-princesa-5-pares-1.jpg",
+  "fotos": [
+    "/img/productos/aros-princesa-5-pares-2.jpg"
+  ],
+  "descripcion": "Circón corte princesa en garras de plata 925 nacional. 5 pares por $16.000.",
+  "variante": "",
+  "variantes": [],
+  "incluye": [
+    "5 pares de aros"
+  ],
+  "etiqueta": "5 x $16.000",
+  "orden": 80,
+  "agotado": false,
+  "visible": true
+}

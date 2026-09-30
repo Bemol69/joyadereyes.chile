@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es-CL" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>%%SEO_TITULO%%</title>
+  <meta name="description" content="%%SEO_DESCRIPCION%%">
+  <meta name="theme-color" content="%%COLOR_FONDO%%">
+  <!-- SEO:HEAD (lo completa scripts/build.mjs) -->
+  <link rel="icon" href="img/logo.jpg">
+  <link rel="apple-touch-icon" href="img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="%%FUENTES_URL%%">
+  <link rel="preload" as="image" href="%%HERO_1%%">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.59-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.42.25-.69.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.49-8.41z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5.5 8h13l-1.2 12.5H6.7L5.5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-store" viewBox="0 0 24 24"><path d="M4 9l1.5-5h13L20 9M4 9v11h16V9M4 9h16M9.5 20v-5.5h5V20"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5.5 9.5V20h13V9.5"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24"><path d="M3 8l4.5 4L12 4.5l4.5 7.5L21 8l-2 11H5L3 8z"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M6.5 4h11L21 9l-9 11L3 9l3.5-5zM3 9h18M9.5 4 12 20M14.5 4 12 20"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5v-9zM3 7.5l9 4.5 9-4.5M12 12v9"/></symbol>
+  </svg>
+
+  <!-- ===== CABECERA ===== -->
+  <header class="top" id="top">
+    <a class="brand" href="#inicio" aria-label="%%NOMBRE%%, ir al inicio">
+      <img src="img/logo.jpg" alt="" width="40" height="40">
+      <span class="brand__name">%%MARCA_A%% <b>%%MARCA_B%%</b></span>
+    </a>
+    <nav class="top__nav" aria-label="Secciones">
+      <a href="#catalogo">Vitrina</a>
+      <a href="#ley925">Ley 925</a>
+      <a href="#se-fueron">Se fueron</a>
+      <a href="#por-mayor">Por mayor</a>
+    </nav>
+    <button class="top__bag" type="button" data-open-bag aria-label="Abrir mi bolsa">
+      <svg class="ic"><use href="#i-bag"/></svg>
+      <span class="top__bag-txt">Bolsa</span>
+      <span class="count" id="bagCount" hidden>0</span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ===== PORTADA: LA BÓVEDA ===== -->
+    <section class="vault" id="inicio">
+      <div class="vault__copy">
+        <p class="eyebrow"><svg class="ic"><use href="#i-crown"/></svg> Joya de Reyes · %%CIUDAD%%</p>
+        <h1 class="vault__title">
+          <span class="line">%%HERO_TITULO%%</span>
+          <!-- SI:HERO_DESTACADO --><em class="line chrome">%%HERO_DESTACADO%%</em><!-- /SI:HERO_DESTACADO -->
+        </h1>
+        <p class="vault__lead">%%HERO_BAJADA%%</p>
+        <div class="vault__cta">
+          <a class="btn btn--chrome btn--lg magnet" href="#catalogo">Ver la vitrina <svg class="ic"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--wa btn--lg" href="%%CONSULTA_WA%%" target="_blank" rel="noopener"><svg class="ic ic--fill"><use href="#i-wa"/></svg> Escríbenos</a>
+        </div>
+        <dl class="facts">
+          <!-- SI:SEGUIDORES --><div><dt>Siguiendo en IG</dt><dd><span data-count="%%SEGUIDORES%%">%%SEGUIDORES%%</span></dd></div><!-- /SI:SEGUIDORES -->
+          <div><dt>Plata nacional</dt><dd>Ley 925</dd></div>
+          <div><dt>Venta</dt><dd>Mayor y detalle</dd></div>
+        </dl>
+      </div>
+
+      <div class="vault__case">
+        <span class="vault__mono" aria-hidden="true">JR</span>
+        <div class="vault__chains" aria-hidden="true">
+          <div class="hang hang--a"><span class="hang__chain"></span><span class="hang__tag">Plata<br><b>925</b></span></div>
+          <div class="hang hang--b"><span class="hang__chain"></span><span class="hang__tag">Desde<br><b>%%DESDE%%</b></span></div>
+          <div class="hang hang--c"><span class="hang__chain"></span><span class="hang__tag">Envíos<br><b>Chile</b></span></div>
+        </div>
+
+        <div class="case" data-case>
+          <figure class="case__slide is-on"><img src="%%HERO_1%%" alt="%%HERO_1_ALT%%" width="540" height="960" fetchpriority="high"></figure>
+          <figure class="case__slide"><img src="%%HERO_2%%" alt="%%HERO_2_ALT%%" width="540" height="960" loading="lazy"></figure>
+          <figure class="case__slide"><img src="%%HERO_3%%" alt="%%HERO_3_ALT%%" width="540" height="960" loading="lazy"></figure>
+          <span class="case__glass" aria-hidden="true"></span>
+          <span class="case__sweep" aria-hidden="true"></span>
+          <div class="case__dots" role="tablist" aria-label="Fotos de la portada">
+            <button type="button" role="tab" aria-selected="true" aria-label="Foto 1" data-slide="0"></button>
+            <button type="button" role="tab" aria-selected="false" aria-label="Foto 2" data-slide="1"></button>
+            <button type="button" role="tab" aria-selected="false" aria-label="Foto 3" data-slide="2"></button>
+          </div>
+        </div>
+        <p class="case__plate"><svg class="ic"><use href="#i-gem"/></svg> Fotos reales de nuestra vitrina</p>
+      </div>
+    </section>
+
+    <div class="ribbon" style="--seg:%%FRANJA1_SEG%%s" aria-hidden="true"><div class="ribbon__track"><!-- FRANJA1 --></div></div>
+
+    <!-- ===== CATÁLOGO: LA VITRINA ===== -->
+    <section class="shop" id="catalogo" aria-labelledby="shopTitle">
+      <header class="sec-head reveal">
+        <p class="kicker">La vitrina</p>
+        <h2 id="shopTitle">Elige tu pieza, <em>nosotros la sellamos</em></h2>
+        <p class="sec-head__sub">Cada joya se va en su bolsita sellada. Toca una para ver la segunda foto y elegir el largo o color.</p>
+      </header>
+
+      <div class="shop__bar">
+        <div class="filters" id="filters" role="tablist" aria-label="Categorías"></div>
+        <label class="sort">Ordenar
+          <select id="sort">
+            <option value="destacados">Destacados</option>
+            <option value="precio-asc">Menor precio</option>
+            <option value="precio-desc">Mayor precio</option>
+          </select>
+        </label>
+      </div>
+      <p class="shop__count" id="count" aria-live="polite">Mostrando <strong>%%N_PRODUCTOS%%</strong> piezas</p>
+
+      <div class="grid is-featured" id="productGrid"><!-- SEO:PRODUCTOS --></div>
+
+      <div class="shop__more reveal">
+        <p><strong>¿No ves lo que buscas?</strong> Tenemos más stock del que cabe aquí: argollas, anillos, cadenas por metro y lotes a elección.</p>
+        <button class="btn btn--ghost" type="button" data-encargo>Pídelo por encargo <svg class="ic"><use href="#i-arrow"/></svg></button>
+      </div>
+    </section>
+
+    <!-- SI:FLYER -->
+    <!-- ===== PROMO ===== -->
+    <section class="promo" id="promo" aria-labelledby="promoTitle">
+      <div class="promo__tag reveal">
+        <span class="promo__hole" aria-hidden="true"></span>
+        <img src="%%FLYER%%" alt="%%FLYER_ALT%%" loading="lazy" decoding="async">
+      </div>
+      <div class="promo__copy reveal">
+        <p class="kicker">Promo vigente</p>
+        <h2 id="promoTitle">%%FLYER_TITULO%%</h2>
+        <p>%%FLYER_TEXTO%%</p>
+        <a class="btn btn--wa btn--lg" href="%%FLYER_WA%%" target="_blank" rel="noopener"><svg class="ic ic--fill"><use href="#i-wa"/></svg> Quiero esta promo</a>
+      </div>
+    </section>
+    <!-- /SI:FLYER -->
+
+    <!-- SI:FRANJA2 -->
+    <div class="banner" style="--seg:%%FRANJA2_SEG%%s" aria-hidden="true"><div class="banner__track"><!-- FRANJA2 --></div></div>
+    <!-- /SI:FRANJA2 -->
+
+    <!-- ===== LEY 925 ===== -->
+    <section class="ley" id="ley925" aria-labelledby="leyTitle">
+      <div class="ley__stamp reveal" aria-hidden="true">
+        <svg viewBox="0 0 200 200" class="stamp">
+          <defs><path id="circ" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs>
+          <circle cx="100" cy="100" r="96" class="stamp__ring"/>
+          <circle cx="100" cy="100" r="58" class="stamp__ring stamp__ring--in"/>
+          <g class="stamp__spin"><text><textPath href="#circ" startOffset="0">PLATA NACIONAL · CALIDAD GARANTIZADA · LEY 925 · JOYAS JR ·</textPath></text></g>
+          <text x="100" y="94" class="stamp__big">925</text>
+          <text x="100" y="120" class="stamp__small">LEY · CHILE</text>
+        </svg>
+      </div>
+      <div class="ley__copy">
+        <header class="sec-head sec-head--left reveal">
+          <p class="kicker">Ley 925</p>
+          <h2 id="leyTitle">Plata de verdad, <em>ley 925</em></h2>
+          <p class="sec-head__sub">Trabajamos plata ley 925: 92,5% plata pura. Por eso brilla como brilla y dura lo que dura.</p>
+        </header>
+        <ul class="perks">
+          <li class="reveal"><svg class="ic"><use href="#i-gem"/></svg><strong>Plata 925 auténtica</strong><span>Plata nacional para el uso diario, en cadenas, pulseras y aros.</span></li>
+          <li class="reveal"><svg class="ic"><use href="#i-check"/></svg><strong>Calidad garantizada</strong><span>Revisamos cada pieza antes de sellarla en su bolsita.</span></li>
+          <li class="reveal"><svg class="ic"><use href="#i-box"/></svg><strong>Precio justo</strong><span>Valores competitivos para ti y para quien revende.</span></li>
+          <li class="reveal"><svg class="ic"><use href="#i-crown"/></svg><strong>Diseños exclusivos</strong><span>Tourbillon, cubanas, tennis, trébol… para cada estilo.</span></li>
+        </ul>
+        <details class="care reveal">
+          <summary>¿Cómo cuido mi plata?</summary>
+          <p>Guárdala en su bolsita sellada cuando no la uses, sácatela para la piscina y evita perfumes y cremas directo sobre la pieza. Si se opaca, un paño suave le devuelve el brillo.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== SE FUERON (confianza) ===== -->
+    <section class="gone" id="se-fueron" aria-labelledby="goneTitle">
+      <header class="sec-head reveal">
+        <p class="kicker">Se fueron</p>
+        <h2 id="goneTitle">Pedidos reales, <em>clientes reales</em></h2>
+        <p class="sec-head__sub">Entregas en %%ZONAS%% y envíos a todo Chile. Estas piezas ya tienen dueño.</p>
+      </header>
+      <div class="gone__wall">
+        <!-- ENTREGAS:LISTA (lo completa scripts/build.mjs) -->
+      </div>
+      <!-- SI:INSTAGRAM -->
+      <p class="gone__more reveal"><a href="https://www.instagram.com/%%INSTAGRAM%%/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg> Mira más entregas en @%%INSTAGRAM%%</a></p>
+      <!-- /SI:INSTAGRAM -->
+    </section>
+
+    <!-- ===== POR MAYOR ===== -->
+    <section class="mayor" id="por-mayor" aria-labelledby="mayorTitle">
+      <div class="mayor__box reveal">
+        <div class="mayor__copy">
+          <p class="kicker">¿Revendes?</p>
+          <h2 id="mayorTitle">Lotes por mayor, <em>a tu elección</em></h2>
+          <p>Armamos lotes de aros, cadenas y pulseras con los modelos que tú elijas, a precio de mayorista. Ideal para emprender o surtir tu tienda.</p>
+          <ul class="mayor__list">
+            <li><svg class="ic"><use href="#i-check"/></svg> Tú eliges los modelos</li>
+            <li><svg class="ic"><use href="#i-check"/></svg> Precio de mayorista</li>
+            <li><svg class="ic"><use href="#i-check"/></svg> Envío a todo Chile</li>
+          </ul>
+          <a class="btn btn--wa btn--lg" href="%%MAYOR_WA%%" target="_blank" rel="noopener"><svg class="ic ic--fill"><use href="#i-wa"/></svg> Cotizar por mayor</a>
+        </div>
+        <div class="mayor__stack" aria-hidden="true">
+          <span class="pouch pouch--1"></span><span class="pouch pouch--2"></span><span class="pouch pouch--3"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CÓMO COMPRAR ===== -->
+    <section class="how" id="como-comprar" aria-labelledby="howTitle">
+      <header class="sec-head reveal">
+        <p class="kicker">Cómo comprar</p>
+        <h2 id="howTitle">Tres pasos y <em>es tuya</em></h2>
+      </header>
+      <ol class="steps">
+        <li class="reveal"><span class="steps__n">01</span><strong>Elige en la vitrina</strong><span>Agrega tus piezas a la bolsa y elige largo o color.</span></li>
+        <li class="reveal"><span class="steps__n">02</span><strong>Dinos cómo te llega</strong><span>Entrega en %%ZONAS%%, retiro o envío por Starken, Chilexpress o Blue Express.</span></li>
+        <li class="reveal"><span class="steps__n">03</span><strong>Confirma por WhatsApp</strong><span>Te llega el pedido armado con su código. Confirmamos stock y pagas por transferencia.</span></li>
+      </ol>
+      <div class="how__cta reveal">
+        <button class="btn btn--chrome btn--lg" type="button" data-open-bag><svg class="ic"><use href="#i-bag"/></svg> Ver mi bolsa</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== PIE ===== -->
+  <footer class="foot">
+    <div class="foot__brand">
+      <img src="img/logo.jpg" alt="Logo %%NOMBRE%%" width="64" height="64" loading="lazy">
+      <p><strong>%%NOMBRE%%</strong> · Joya de Reyes<br>Joyas que brillan como tú.</p>
+    </div>
+    <ul class="foot__info">
+      <li><svg class="ic"><use href="#i-pin"/></svg> %%CIUDAD%%<!-- SI:REGION -->, %%REGION%%<!-- /SI:REGION --></li>
+      <li><svg class="ic"><use href="#i-truck"/></svg> %%ENVIOS%%</li>
+      <!-- SI:HORARIO --><li><svg class="ic"><use href="#i-store"/></svg> %%HORARIO%%</li><!-- /SI:HORARIO -->
+    </ul>
+    <div class="foot__links">
+      <a class="btn btn--wa" id="footerWa" href="%%CONSULTA_WA%%" target="_blank" rel="noopener"><svg class="ic ic--fill"><use href="#i-wa"/></svg> WhatsApp</a>
+      <!-- SI:INSTAGRAM --><a class="btn btn--ghost" href="https://www.instagram.com/%%INSTAGRAM%%/" target="_blank" rel="noopener"><svg class="ic"><use href="#i-ig"/></svg> @%%INSTAGRAM%%</a><!-- /SI:INSTAGRAM -->
+    </div>
+    <p class="foot__legal">© %%ANIO%% %%NOMBRE%%. Precios en pesos chilenos, sujetos a stock.</p>
+  </footer>
+
+  <!-- Botones flotantes -->
+  <a class="float-wa" id="floatWa" href="%%CONSULTA_WA%%" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg class="ic ic--fill"><use href="#i-wa"/></svg></a>
+  <button class="fab" type="button" data-open-bag hidden><svg class="ic"><use href="#i-bag"/></svg><span id="fabLabel">Mi bolsa</span></button>
+
+  <!-- ===== FICHA DE PRODUCTO ===== -->
+  <div class="modal pm" id="productModal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel pm__panel" role="dialog" aria-modal="true" aria-labelledby="pmName">
+      <button class="modal__close" type="button" data-close aria-label="Cerrar">×</button>
+      <div class="pm__media">
+        <div class="pm__frame">
+          <img id="pmImg" src="img/logo.jpg" alt="">
+          <button class="pm__nav pm__nav--prev" type="button" data-step-photo="-1" aria-label="Foto anterior">‹</button>
+          <button class="pm__nav pm__nav--next" type="button" data-step-photo="1" aria-label="Foto siguiente">›</button>
+        </div>
+        <div class="pm__thumbs" id="pmThumbs"></div>
+      </div>
+      <div class="pm__info">
+        <p class="pm__cat" id="pmCat"></p>
+        <h2 class="pm__name" id="pmName"></h2>
+        <p class="pm__price" id="pmPrice"></p>
+        <p class="pm__desc" id="pmDesc"></p>
+        <ul class="pm__incl" id="pmIncl"></ul>
+        <div id="pmSizesWrap">
+          <p class="pm__label"><span id="pmVarLabel">Elige</span> <small id="pmSizeHint"></small></p>
+          <div class="pills" id="pmSizes" role="radiogroup"></div>
+        </div>
+        <div class="pm__qty">
+          <p class="pm__label">Cantidad</p>
+          <div class="qty qty--lg">
+            <button type="button" data-qty="-1" aria-label="Menos">−</button>
+            <span id="pmQty">1</span>
+            <button type="button" data-qty="1" aria-label="Más">+</button>
+          </div>
+        </div>
+        <p class="form__error" id="pmError" role="alert" hidden></p>
+        <button class="btn btn--chrome btn--lg btn--block" type="button" id="pmAdd"><svg class="ic"><use href="#i-bag"/></svg> Agregar a mi bolsa</button>
+        <a class="btn btn--ghost btn--block" id="pmAsk" href="#" target="_blank" rel="noopener"><svg class="ic ic--fill"><use href="#i-wa"/></svg> Preguntar por esta pieza</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BOLSA Y PEDIDO ===== -->
+  <aside class="bag" id="bag" aria-hidden="true">
+    <div class="bag__backdrop" data-close-bag></div>
+    <div class="bag__panel" role="dialog" aria-modal="true" aria-labelledby="bagTitle">
+      <header class="bag__head">
+        <span class="card__zip" aria-hidden="true"></span>
+        <h2 id="bagTitle">Tu pedido</h2>
+        <button class="modal__close" type="button" data-close-bag aria-label="Cerrar">×</button>
+      </header>
+      <div class="bag__body">
+        <div class="bag__empty" id="bagEmpty">
+          <svg class="ic"><use href="#i-bag"/></svg>
+          <p>Tu bolsa está vacía. Elige algo de la vitrina o escribe tu encargo aquí abajo.</p>
+          <a class="btn btn--ghost btn--sm" href="#catalogo" data-close-bag>Ver la vitrina</a>
+        </div>
+        <ul class="bag__list" id="bagList"></ul>
+
+        <div class="coupon" id="couponBox" hidden>
+          <div id="cuponForm">
+            <label class="pm__label" for="fCupon">¿Tienes un código de descuento?</label>
+            <div class="coupon__row">
+              <input id="fCupon" type="text" placeholder="Ej: REYES10" autocomplete="off" autocapitalize="characters" spellcheck="false">
+              <button class="btn btn--ghost btn--sm" type="button" id="cuponBtn">Aplicar</button>
+            </div>
+          </div>
+          <div class="coupon__status" id="cuponStatus" role="status" aria-live="polite" hidden></div>
+        </div>
+
+        <form id="orderForm" class="checkout" novalidate>
+          <details class="encargo" id="encargoBox">
+            <summary>¿Buscas otro modelo o largo? <strong>Encárgalo</strong></summary>
+            <textarea id="fEncargo" rows="2" placeholder="Ej: Cadena cubana 60 cm · Anillo signo talla 20 · Lote de 10 pares de aros"></textarea>
+          </details>
+
+          <p class="checkout__step"><span>1</span> Tus datos</p>
+          <label>Nombre y apellido
+            <input id="fNombre" type="text" autocomplete="name" placeholder="Ej: Camila Rojas">
+          </label>
+
+          <p class="checkout__step"><span>2</span> Entrega</p>
+          <div class="seg" id="fEntrega" role="radiogroup" aria-label="Tipo de entrega"></div>
+
+          <label data-sector>Punto de entrega <small>(opcional)</small>
+            <input id="fSector" type="text" placeholder="Ej: Plaza de Armas, terminal de buses…">
+          </label>
+
+          <div class="ship" data-envio hidden>
+            <div class="row">
+              <label>Región
+                <select id="fRegion"><option value="">Elige tu región</option></select>
+              </label>
+              <label>Comuna
+                <select id="fComuna" disabled><option value="">Primero la región</option></select>
+              </label>
+            </div>
+            <p class="pm__label">Empresa de envío</p>
+            <div class="seg couriers" id="fCourier" role="radiogroup" aria-label="Empresa de envío"></div>
+            <div class="seg seg--2" role="radiogroup" aria-label="Modalidad de envío">
+              <label><input type="radio" name="modo" value="sucursal" checked><span><svg class="ic"><use href="#i-store"/></svg>Retiro en sucursal</span></label>
+              <label><input type="radio" name="modo" value="domicilio"><span><svg class="ic"><use href="#i-home"/></svg>A domicilio</span></label>
+            </div>
+            <label data-modo="sucursal">Sucursal donde retiras
+              <input id="fSucursal" type="text" placeholder="Nombre o dirección de la sucursal">
+            </label>
+            <a class="locator" id="fLocator" data-modo="sucursal" target="_blank" rel="noopener"></a>
+            <label data-modo="domicilio" hidden>Dirección de entrega
+              <input id="fDireccion" type="text" autocomplete="street-address" placeholder="Calle, número, depto">
+            </label>
+          </div>
+
+          <p class="checkout__step"><span>3</span> Pago</p>
+          <div class="seg" role="radiogroup" aria-label="Medio de pago">
+            <label><input type="radio" name="pago" value="transferencia" checked><span>Transferencia</span></label>
+            <label data-local><input type="radio" name="pago" value="efectivo"><span>Efectivo al recibir</span></label>
+          </div>
+
+          <label>Comentario <small>(opcional)</small>
+            <input id="fNota" type="text" placeholder="Ej: es para regalo, horario para la entrega…">
+          </label>
+
+          <div class="preview">
+            <p class="preview__label">Así llegará tu mensaje</p>
+            <div id="msgPreview"></div>
+          </div>
+        </form>
+      </div>
+      <footer class="bag__foot">
+        <div class="bag__sums" id="bagSums" hidden></div>
+        <div class="bag__total"><span id="bagTotalLabel">Total</span><strong id="bagTotal">$0</strong></div>
+        <p class="bag__hint" id="bagHint"></p>
+        <p class="form__error" id="formError" role="alert" hidden></p>
+        <button class="btn btn--wa btn--block btn--lg" type="submit" form="orderForm"><svg class="ic ic--fill"><use href="#i-wa"/></svg> Enviar pedido por WhatsApp</button>
+      </footer>
+    </div>
+  </aside>
+
+  <!-- SI:FLYER_POPUP -->
+  <div class="modal promo-pop" id="promoModal" data-flyer="%%FLYER_POPUP%%" aria-hidden="true">
+    <div class="modal__backdrop" data-promo-close></div>
+    <div class="modal__panel promo-pop__panel" role="dialog" aria-modal="true" aria-label="%%FLYER_TITULO%%">
+      <button class="modal__close" type="button" data-promo-close aria-label="Cerrar">×</button>
+      <img src="%%FLYER_POPUP%%" alt="%%FLYER_ALT%%">
+      <div class="promo-pop__foot">
+        <strong>%%FLYER_TITULO%%</strong>
+        <a class="btn btn--wa btn--block" href="%%FLYER_WA%%" target="_blank" rel="noopener"><svg class="ic ic--fill"><use href="#i-wa"/></svg> Quiero esta promo</a>
+      </div>
+    </div>
+  </div>
+  <!-- /SI:FLYER_POPUP -->
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

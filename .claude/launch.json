@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "tienda",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "5602", "--directory", "dist"],
+      "port": 5602
+    }
+  ]
+}

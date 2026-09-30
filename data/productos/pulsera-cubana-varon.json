@@ -1,0 +1,20 @@
+{
+  "nombre": "Pulsera Cubana Varón · Plata 925",
+  "precio": 29990,
+  "foto": "/img/productos/pulsera-cubana-varon-1.jpg",
+  "fotos": [
+    "/img/productos/pulsera-cubana-varon-2.jpg"
+  ],
+  "descripcion": "Eslabón cubano grueso con cierre de caja. Pesada y con presencia.",
+  "variante": "Largo",
+  "variantes": [
+    "19 cm",
+    "21 cm",
+    "23 cm"
+  ],
+  "incluye": [],
+  "etiqueta": "",
+  "orden": 90,
+  "agotado": false,
+  "visible": true
+}

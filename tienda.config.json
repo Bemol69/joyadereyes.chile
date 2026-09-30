@@ -1,0 +1,31 @@
+{
+  "_ayuda": "Datos fijos de la tienda (los define el desarrollador). Los datos de contacto y portada van en data/ajustes.json, que el cliente edita desde /admin.",
+  "nombre": "Joyas JR",
+  "marca_a": "Joyas",
+  "marca_b": "JR",
+  "rubro": "Joyas de plata 925",
+  "schema_tipo": "JewelryStore",
+  "seo_titulo": "Joyas de plata 925 en Los Andes | Joyas JR · Joya de Reyes",
+  "seo_descripcion": "Cadenas Tourbillon y cubanas, pulseras y aros de plata nacional ley 925. Diseños exclusivos, venta por mayor y al detalle, con envíos a todo Chile.",
+  "github_repo": "Bemol69/joyadereyes.chile",
+  "site_url": "https://joyadereyes-chile.vercel.app",
+  "google_verificacion": "",
+  "hero": [
+    { "foto": "img/hero/hero-1.jpg", "alt": "Cadenas Tourbillon de plata 925 en un busto de terciopelo negro" },
+    { "foto": "img/hero/hero-2.jpg", "alt": "Pulsera tenis de circones verde esmeralda sobre guante negro" },
+    { "foto": "img/hero/hero-3.jpg", "alt": "Aros halo de plata y circón en la palma de la mano" }
+  ],
+  "fuentes": { "titulos": "Bodoni Moda", "texto": "Manrope", "mono": "IBM Plex Mono" },
+  "colores": {
+    "fondo": "#0A0B0D",
+    "superficie": "#131519",
+    "superficie_2": "#1B1E23",
+    "linea": "#2A2E35",
+    "plata": "#D9DEE4",
+    "plata_oscura": "#8E97A3",
+    "hielo": "#9FE3FF",
+    "hielo_oscuro": "#3FB6E8",
+    "tinta": "#EEF1F4",
+    "tinta_suave": "#8C94A0"
+  }
+}

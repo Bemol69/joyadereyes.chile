@@ -1,0 +1,9 @@
+{
+  "nombre": "Pulseras",
+  "productos": [
+    "pulsera-tenis-esmeralda",
+    "pulsera-cubana-varon"
+  ],
+  "orden": 20,
+  "visible": true
+}

@@ -1,0 +1,21 @@
+{
+  "nombre": "Cadena Torzal · Enchapada Oro 14K",
+  "precio": 24990,
+  "foto": "/img/productos/cadena-torzal-oro-14k-1.jpg",
+  "fotos": [
+    "/img/productos/cadena-torzal-oro-14k-2.jpg"
+  ],
+  "descripcion": "Enchapada en oro 14K con baño de rodio que protege el enchapado. Resistente al agua e hipoalergénica.",
+  "variante": "Largo",
+  "variantes": [
+    "45 cm",
+    "50 cm",
+    "55 cm",
+    "60 cm"
+  ],
+  "incluye": [],
+  "etiqueta": "Oro 14K",
+  "orden": 50,
+  "agotado": false,
+  "visible": true
+}

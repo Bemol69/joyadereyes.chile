@@ -1,0 +1,11 @@
+{
+  "titulo": "Bienvenida 10%",
+  "codigo": "REYES10",
+  "tipo": "porcentaje",
+  "valor": 10,
+  "categorias": [],
+  "productos": [],
+  "minimo": 20000,
+  "vence": "",
+  "activo": true
+}

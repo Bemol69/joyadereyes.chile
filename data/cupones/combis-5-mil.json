@@ -1,0 +1,13 @@
+{
+  "titulo": "$5.000 menos en combis",
+  "codigo": "COMBI5",
+  "tipo": "monto",
+  "valor": 5000,
+  "categorias": [
+    "combos"
+  ],
+  "productos": [],
+  "minimo": 0,
+  "vence": "",
+  "activo": true
+}
